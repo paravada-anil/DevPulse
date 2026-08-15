@@ -1,0 +1,823 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #070b14;
+  color: #f8fafc;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* =========================
+   MAIN LAYOUT
+========================= */
+
+.layout {
+  min-height: 100vh;
+  display: flex;
+  background:
+    radial-gradient(
+      circle at 10% 0%,
+      rgba(59, 130, 246, 0.15),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 90%,
+      rgba(139, 92, 246, 0.14),
+      transparent 30%
+    ),
+    #070b14;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 28px 18px;
+
+  background: rgba(10, 15, 28, 0.96);
+  border-right: 1px solid #202b3d;
+
+  z-index: 100;
+}
+
+.sidebar-logo {
+  font-size: 25px;
+  font-weight: bold;
+  padding: 5px 10px;
+  margin-bottom: 35px;
+}
+
+.sidebar-user {
+  text-align: center;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #202b3d;
+}
+
+.sidebar-avatar {
+  width: 70px;
+  height: 70px;
+
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    #6366f1,
+    #a855f7
+  );
+
+  font-size: 28px;
+  font-weight: bold;
+
+  box-shadow:
+    0 0 25px rgba(99, 102, 241, 0.35);
+}
+
+.sidebar-user h3 {
+  margin-top: 12px;
+  font-size: 16px;
+}
+
+.sidebar-user p {
+  color: #64748b;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  margin-top: 25px;
+}
+
+.sidebar-menu a {
+  text-decoration: none;
+  color: #94a3b8;
+
+  padding: 13px 15px;
+
+  border-radius: 10px;
+
+  transition: 0.2s;
+}
+
+.sidebar-menu a:hover {
+  background: #151e31;
+  color: #ffffff;
+  transform: translateX(3px);
+}
+
+.sidebar-logout {
+  margin-top: auto;
+
+  width: 100%;
+
+  padding: 12px;
+
+  border: 1px solid #7f1d1d;
+  border-radius: 10px;
+
+  background: rgba(127, 29, 29, 0.18);
+
+  color: #f87171;
+
+  font-weight: bold;
+
+  transition: 0.2s;
+}
+
+.sidebar-logout:hover {
+  background: #dc2626;
+  color: white;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.dashboard-content {
+  width: calc(100% - 250px);
+  margin-left: 250px;
+  min-height: 100vh;
+}
+
+/* =========================
+   TOPBAR
+========================= */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  padding: 20px 6%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: rgba(7, 11, 20, 0.85);
+
+  border-bottom: 1px solid #202b3d;
+
+  backdrop-filter: blur(14px);
+}
+
+.topbar h1 {
+  font-size: 25px;
+}
+
+.topbar p {
+  color: #64748b;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.topbar-logout {
+  padding: 9px 18px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: #ef4444;
+  color: white;
+
+  font-weight: bold;
+
+  transition: 0.2s;
+}
+
+.topbar-logout:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
+}
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+  width: 100%;
+  max-width: 1000px;
+
+  margin: auto;
+
+  padding: 45px 30px 70px;
+}
+
+/* =========================
+   WELCOME
+========================= */
+
+.welcome {
+  margin-bottom: 32px;
+}
+
+.welcome h2 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.welcome p {
+  color: #64748b;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.card {
+  background: linear-gradient(
+    145deg,
+    rgba(17, 24, 39, 0.96),
+    rgba(12, 18, 31, 0.96)
+  );
+
+  border: 1px solid #202b3d;
+  border-radius: 18px;
+
+  padding: 27px;
+
+  margin-bottom: 24px;
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.22);
+
+  transition: 0.25s;
+}
+
+.card:hover {
+  border-color: #334155;
+  transform: translateY(-2px);
+}
+
+.card h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.card p {
+  color: #94a3b8;
+  margin-bottom: 10px;
+}
+
+.card strong {
+  color: #f8fafc;
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile-info {
+  display: grid;
+  gap: 9px;
+
+  padding: 18px;
+
+  background: #0a101d;
+
+  border: 1px solid #1e293b;
+
+  border-radius: 12px;
+}
+
+.bio-section {
+  margin-top: 20px;
+}
+
+.edit-bio-button,
+.save-bio-button,
+.cancel-bio-button {
+  border: none;
+  border-radius: 8px;
+
+  padding: 9px 14px;
+
+  font-weight: bold;
+}
+
+.edit-bio-button,
+.save-bio-button {
+  background: #6366f1;
+  color: white;
+}
+
+.edit-bio-button:hover,
+.save-bio-button:hover {
+  background: #4f46e5;
+}
+
+.cancel-bio-button {
+  background: #334155;
+  color: white;
+  margin-left: 8px;
+}
+
+.bio-editor textarea {
+  width: 100%;
+
+  padding: 13px;
+
+  background: #070b14;
+
+  color: white;
+
+  border: 1px solid #334155;
+
+  border-radius: 10px;
+
+  outline: none;
+
+  resize: vertical;
+
+  margin: 8px 0 10px;
+}
+
+.bio-editor textarea:focus {
+  border-color: #6366f1;
+}
+
+/* =========================
+   SKILLS
+========================= */
+
+.skill-form {
+  display: grid;
+  grid-template-columns: 1fr 130px auto;
+  gap: 10px;
+
+  margin-bottom: 25px;
+}
+
+.skill-form input {
+  width: 100%;
+
+  padding: 13px;
+
+  background: #070b14;
+
+  color: white;
+
+  border: 1px solid #334155;
+
+  border-radius: 9px;
+
+  outline: none;
+}
+
+.skill-form input:focus {
+  border-color: #6366f1;
+}
+
+.skill-form button {
+  padding: 13px 18px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: linear-gradient(
+    135deg,
+    #6366f1,
+    #8b5cf6
+  );
+
+  color: white;
+
+  font-weight: bold;
+}
+
+.skill-form button:hover {
+  transform: translateY(-1px);
+}
+
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.skill-item {
+  padding: 18px;
+
+  background: #0a101d;
+
+  border: 1px solid #202b3d;
+
+  border-radius: 13px;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 5px;
+}
+
+.skill-header strong {
+  font-size: 17px;
+}
+
+.skill-header span {
+  color: #a5b4fc;
+  font-weight: bold;
+}
+
+.skill-level {
+  color: #c084fc !important;
+  font-size: 13px;
+}
+
+/* =========================
+   PROGRESS BAR
+========================= */
+
+.progress-bg {
+  width: 100%;
+  height: 9px;
+
+  background: #1e293b;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  margin: 12px 0;
+}
+
+.progress-bg.large {
+  height: 14px;
+}
+
+.progress-fill {
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    #6366f1,
+    #8b5cf6,
+    #c084fc
+  );
+
+  border-radius: 20px;
+
+  transition: width 0.6s ease;
+}
+
+.skill-item button {
+  padding: 6px 13px;
+
+  border: 1px solid #ef4444;
+  border-radius: 7px;
+
+  background: transparent;
+
+  color: #ef4444;
+}
+
+.skill-item button:hover {
+  background: #ef4444;
+  color: white;
+}
+
+/* =========================
+   OVERALL PROGRESS
+========================= */
+
+.overall-progress {
+  text-align: center;
+  margin: 25px 0;
+}
+
+.progress-number {
+  font-size: 65px;
+  font-weight: bold;
+
+  background: linear-gradient(
+    90deg,
+    #818cf8,
+    #c084fc
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.overall-level {
+  color: #c084fc;
+}
+
+.progress-text {
+  text-align: center;
+}
+
+/* =========================
+   GITHUB
+========================= */
+
+.github-form {
+  display: flex;
+  gap: 10px;
+
+  margin: 20px 0 25px;
+}
+
+.github-form input {
+  flex: 1;
+
+  padding: 13px;
+
+  background: #070b14;
+
+  color: white;
+
+  border: 1px solid #334155;
+
+  border-radius: 9px;
+
+  outline: none;
+}
+
+.github-form button {
+  padding: 13px 18px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: white;
+  color: #070b14;
+
+  font-weight: bold;
+}
+
+/* =========================
+   GITHUB PROFILE
+========================= */
+
+.github-profile {
+  text-align: center;
+
+  padding: 25px;
+
+  background: #0a101d;
+
+  border: 1px solid #202b3d;
+
+  border-radius: 15px;
+}
+
+.github-avatar {
+  width: 90px;
+  height: 90px;
+
+  border-radius: 50%;
+
+  border: 3px solid #6366f1;
+
+  margin-bottom: 12px;
+}
+
+.github-username {
+  color: #a5b4fc !important;
+}
+
+.github-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 12px;
+
+  margin: 20px 0;
+}
+
+.github-stats div {
+  padding: 18px 8px;
+
+  background: #101827;
+
+  border: 1px solid #202b3d;
+
+  border-radius: 11px;
+}
+
+.github-stats strong {
+  display: block;
+
+  font-size: 22px;
+
+  color: #a5b4fc;
+}
+
+.github-stats span {
+  display: block;
+
+  color: #64748b;
+
+  font-size: 12px;
+
+  margin-top: 5px;
+}
+
+.github-button,
+.repo-button {
+  display: inline-block;
+
+  padding: 9px 14px;
+
+  background: #6366f1;
+
+  color: white;
+
+  text-decoration: none;
+
+  border-radius: 8px;
+
+  font-size: 13px;
+
+  font-weight: bold;
+}
+
+/* =========================
+   REPOSITORIES
+========================= */
+
+.github-repositories {
+  margin-top: 30px;
+}
+
+.repo-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 14px;
+}
+
+.repo-card {
+  padding: 18px;
+
+  background: #0a101d;
+
+  border: 1px solid #202b3d;
+
+  border-radius: 13px;
+
+  transition: 0.2s;
+}
+
+.repo-card:hover {
+  border-color: #6366f1;
+  transform: translateY(-2px);
+}
+
+.repo-card h4 {
+  color: #a5b4fc;
+
+  font-size: 16px;
+
+  margin-bottom: 8px;
+}
+
+.repo-description {
+  min-height: 40px;
+
+  font-size: 13px;
+}
+
+.repo-info {
+  display: flex;
+
+  gap: 13px;
+
+  flex-wrap: wrap;
+
+  margin: 14px 0;
+}
+
+.repo-info span {
+  color: #94a3b8;
+
+  font-size: 12px;
+}
+
+/* =========================
+   LOADING
+========================= */
+
+.dashboard-loading {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #070b14;
+
+  color: white;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+
+  .sidebar {
+    width: 210px;
+  }
+
+  .dashboard-content {
+    width: calc(100% - 210px);
+    margin-left: 210px;
+  }
+
+  .skill-form {
+    grid-template-columns: 1fr;
+  }
+
+  .repo-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+
+  .layout {
+    display: block;
+  }
+
+  .sidebar {
+    position: relative;
+
+    width: 100%;
+    height: auto;
+
+    border-right: none;
+    border-bottom: 1px solid #202b3d;
+  }
+
+  .sidebar-menu {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .sidebar-logout {
+    margin-top: 20px;
+  }
+
+  .dashboard-content {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .topbar {
+    position: relative;
+  }
+
+  main {
+    padding: 30px 16px 50px;
+  }
+
+  .welcome h2 {
+    font-size: 25px;
+  }
+
+  .github-stats {
+    grid-template-columns: 1fr;
+  }
+}
