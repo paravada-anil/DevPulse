@@ -63,7 +63,7 @@ function Dashboard() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth/me",
+        "https://devpulse-backend-oabh.onrender.com/api/auth/me",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -112,7 +112,7 @@ function Dashboard() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth/skills",
+        "https://devpulse-backend-oabh.onrender.com/api/auth/skills",
         {
           method: "POST",
           headers: {
@@ -160,7 +160,7 @@ function Dashboard() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/auth/skills/${encodeURIComponent(
+        `https://devpulse-backend-oabh.onrender.com/api/auth/skills/${encodeURIComponent(
           skillName
         )}`,
         {
@@ -196,7 +196,7 @@ function Dashboard() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth/bio",
+        "https://devpulse-backend-oabh.onrender.com/api/auth/bio",
         {
           method: "PUT",
           headers: {
@@ -253,8 +253,7 @@ function Dashboard() {
         return;
       }
 
-      const githubData =
-        await userResponse.json();
+      const githubData = await userResponse.json();
 
       setGithubUser(githubData);
 
@@ -262,8 +261,7 @@ function Dashboard() {
         `https://api.github.com/users/${username}/repos?sort=updated&per_page=12`
       );
 
-      const repoData =
-        await repoResponse.json();
+      const repoData = await repoResponse.json();
 
       setRepositories(repoData);
     } catch (error) {
@@ -369,6 +367,7 @@ function Dashboard() {
 
           <div>
             <h1>DevPulse 🚀</h1>
+
             <p>
               Developer Learning Dashboard
             </p>
@@ -717,6 +716,7 @@ function Dashboard() {
                           githubUser.public_repos
                         }
                       </strong>
+
                       <span>
                         Repositories
                       </span>
@@ -726,6 +726,7 @@ function Dashboard() {
                       <strong>
                         {githubUser.followers}
                       </strong>
+
                       <span>
                         Followers
                       </span>
@@ -735,6 +736,7 @@ function Dashboard() {
                       <strong>
                         {githubUser.following}
                       </strong>
+
                       <span>
                         Following
                       </span>
