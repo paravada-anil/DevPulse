@@ -99,7 +99,7 @@ node server.js
 The backend runs on:
 
 ```text
-http://localhost:5000
+https://devpulse-backend-oabh.onrender.com
 ```
 
 ### 3. Frontend Setup
